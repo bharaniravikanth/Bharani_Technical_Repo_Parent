@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:camel="http://camel.apache.org/schema/spring" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://cxf.apache.org/transports/camel http://cxf.apache.org/transports/camel.xsd
+		http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+
+	<cxf:cxfEndpoint address="/services/notification" id="studentservice"
+		serviceClass="org.bharani.blog.service.StudentService" xmlns:ericsson="http://ws.api.student.bharani.blog.org/">
+		<cxf:properties>
+			<entry key="dataFormat" value="POJO" />
+			<entry key="setDefaultBus" value="true" />
+		</cxf:properties>
+	</cxf:cxfEndpoint>
+
+	<camel:camelContext>
+		<camel:route id="studentService">
+			<camel:from uri="cxf:bean:studentservice?synchronous=true" />
+			<camel:log message="${in.headers}" />
+		</camel:route>
+	</camel:camelContext>
+</beans>

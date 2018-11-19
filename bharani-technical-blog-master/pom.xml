@@ -10,6 +10,7 @@
 		<camel.version>2.21.1</camel.version>
 		<jaxb.version>2.1</jaxb.version>
 		<bundle.felix.version>4.1.0</bundle.felix.version>
+		<log.4j.version>1.2.17</log.4j.version>
 	</properties>
 	<modules>
 		<module>btb-apache-camel-cxf</module>
@@ -41,6 +42,10 @@
 			<artifactId>maven-bundle-plugin</artifactId>
 			<version>${bundle.felix.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log.4j.version}</version>
+		</dependency>
 	</dependencies>
 </project>
