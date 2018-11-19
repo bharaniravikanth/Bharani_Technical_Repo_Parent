@@ -1,4 +1,4 @@
-package com.bharani.blog.service.impl;
+package org.bharani.blog.service.impl;
 
 import org.apache.log4j.Logger;
 

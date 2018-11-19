@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
 
 
-	<cxf:cxfEndpoint address="/services/notification" id="studentservice"
+	<cxf:cxfEndpoint address="/services/student" id="studentservice"
 		serviceClass="org.bharani.blog.service.StudentService" xmlns:ericsson="http://ws.api.student.bharani.blog.org/">
 		<cxf:properties>
 			<entry key="dataFormat" value="POJO" />
