@@ -7,8 +7,9 @@
 	<packaging>pom</packaging>
 	<properties>
 		<encoding>UTF-8</encoding>
-		<camel.version>2.21.0</camel.version>
+		<camel.version>2.21.1</camel.version>
 		<jaxb.version>2.1</jaxb.version>
+		<bundle.felix.version>4.1.0</bundle.felix.version>
 	</properties>
 	<modules>
 		<module>btb-apache-camel-cxf</module>
@@ -35,5 +36,11 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>${jaxb.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>maven-bundle-plugin</artifactId>
+			<version>${bundle.felix.version}</version>
+		</dependency>
+
 	</dependencies>
 </project>

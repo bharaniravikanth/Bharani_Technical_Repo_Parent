@@ -6,6 +6,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+
+/**
+ * 
+ * @author Bharani Ravi Kanth R
+ *
+ */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "student", "acadamics" })
 @XmlRootElement(name = "StudentAcademic")

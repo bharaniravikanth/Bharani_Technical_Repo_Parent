@@ -1,5 +1,10 @@
 package org.bharani.blog.schema;
 
+/**
+ * 
+ * @author Bharani Ravi Kanth R
+ *
+ */
 public class StudentAcademicResponseSchema {
 
 	private StudentSchema student;
