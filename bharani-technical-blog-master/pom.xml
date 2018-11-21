@@ -9,43 +9,14 @@
 		<encoding>UTF-8</encoding>
 		<camel.version>2.21.1</camel.version>
 		<jaxb.version>2.1</jaxb.version>
-		<bundle.felix.version>4.1.0</bundle.felix.version>
+		<bundle.felix.version>3.5.1</bundle.felix.version>
 		<log.4j.version>1.2.17</log.4j.version>
+		<osgi.version>4.3.1</osgi.version>
+		<maven.compile.version>3.7.0</maven.compile.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<apache.cxf.version>3.1.11.fuse-710022-redhat-00001</apache.cxf.version>
 	</properties>
 	<modules>
 		<module>btb-apache-camel-cxf</module>
 	</modules>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-core</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-cxf</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-spring</artifactId>
-			<version>${camel.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>${jaxb.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>maven-bundle-plugin</artifactId>
-			<version>${bundle.felix.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log.4j.version}</version>
-		</dependency>
-	</dependencies>
 </project>

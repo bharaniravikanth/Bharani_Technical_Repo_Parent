@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+	xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+	<cxf:cxfEndpoint address="/student/" id="studentservice"
+		serviceClass="org.bharani.blog.service.StudentService">
+
+	</cxf:cxfEndpoint>
+
+	<bean id="addstudentHandler" class="org.bharani.blog.service.impl.AddStudentDetailsHandler" />
+	<bean id="getStudentHandler" class="org.bharani.blog.service.impl.GetStudentDetailsHandler" />
+
+	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
+		<route id="studentservicetoLog">
+			<from uri="cxf:bean:studentservice?synchronous=true" />
+			<log message="{in.headers}" />
+			<choice>
+				<when>
+					<simple>${in.header.operationName} == 'addStudentDetails' </simple>
+					<convertBodyTo type="org.bharani.blog.schema.StudentAcademicSchema" />
+					<bean ref="addstudentHandler" />
+				</when>
+				<when>
+					<simple>${in.header.operationName} == 'getStudentDetails' </simple>
+					<convertBodyTo type="org.bharani.blog.schema.StudentAcademicSchema" />
+					<bean ref="getStudentHandler" />
+				</when>
+			</choice>
+			<to uri="stream:out" />
+		</route>
+	</camelContext>
+</blueprint>

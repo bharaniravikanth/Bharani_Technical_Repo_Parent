@@ -12,9 +12,10 @@ import org.bharani.blog.schema.StudentAcademicSchema;
 public class AddStudentDetailsHandler extends AbstractHandler {
 
 	@Handler
-	public void process(@Body StudentAcademicSchema studentAcademicSchema) throws Exception {
+	public String process(@Body StudentAcademicSchema studentAcademicSchema) throws Exception {
 
 		logger.info("inside AddStudentDetailsHandler.process()");
+		return "SUCCESS";
 
 	}
 }

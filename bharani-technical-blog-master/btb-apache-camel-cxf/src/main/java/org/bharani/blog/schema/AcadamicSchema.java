@@ -13,19 +13,19 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = { "class", "section", "science_score", "math_score", "social_score" })
+@XmlType(propOrder = { "student_class", "student_class_section", "student_science_score", "student_math_score", "student_social_studies_score" })
 @XmlRootElement(name = "AcadamicSchema")
 public class AcadamicSchema {
 
-	@XmlElement(name = "class", required = true)
+	@XmlElement(name = "student_class", required = true)
 	private String student_class;
-	@XmlElement(name = "section", required = true)
+	@XmlElement(name = "student_class_section", required = true)
 	private String student_class_section;
-	@XmlElement(name = "science_score", required = true)
+	@XmlElement(name = "student_science_score", required = true)
 	private String student_science_score;
-	@XmlElement(name = "math_score", required = true)
+	@XmlElement(name = "student_math_score", required = true)
 	private String student_math_score;
-	@XmlElement(name = "social_score", required = true)
+	@XmlElement(name = "student_social_studies_score", required = true)
 	private String student_social_studies_score;
 
 	public String getStudent_class() {

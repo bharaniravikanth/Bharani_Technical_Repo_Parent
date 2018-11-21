@@ -14,8 +14,8 @@ import org.bharani.blog.schema.StudentAcademicSchema;
 @WebService(name = "StudentService")
 public interface StudentService {
 
-	public void addStudentDetails(@WebParam(name = "student_academic") StudentAcademicSchema studentAcadamics);
+	public String addStudentDetails(@WebParam(name = "student_academic") StudentAcademicSchema studentAcadamics);
 
-	public StudentAcademicResponseSchema getStudentDetails(@WebParam(name = "student_id") String student_id);
+	public StudentAcademicResponseSchema getStudentDetails(@WebParam(name = "studentid") String student_id);
 
 }
