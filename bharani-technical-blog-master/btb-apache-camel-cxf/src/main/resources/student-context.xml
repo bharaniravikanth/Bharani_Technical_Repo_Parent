@@ -13,24 +13,31 @@
 
 	<bean id="addstudentHandler" class="org.bharani.blog.service.impl.AddStudentDetailsHandler" />
 	<bean id="getStudentHandler" class="org.bharani.blog.service.impl.GetStudentDetailsHandler" />
+	<bean id="studentAddCache"
+		class="org.bharani.blog.processor.AddingStudentInCacheProcessor" />
+	<bean id="studentGetCache"
+		class="org.bharani.blog.processor.GettingStudentFromCacheProcessor" />
 
 	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
 		<route id="studentservicetoLog">
 			<from uri="cxf:bean:studentservice?synchronous=true" />
-			<log message="{in.headers}" />
+			<log message="${in.headers}" />
 			<choice>
 				<when>
 					<simple>${in.header.operationName} == 'addStudentDetails' </simple>
 					<convertBodyTo type="org.bharani.blog.schema.StudentAcademicSchema" />
+					<bean ref="studentAddCache" />
+					<to uri="ehcache://studentCache" />
 					<bean ref="addstudentHandler" />
 				</when>
 				<when>
 					<simple>${in.header.operationName} == 'getStudentDetails' </simple>
-					<convertBodyTo type="org.bharani.blog.schema.StudentAcademicSchema" />
+					<convertBodyTo type="java.lang.String" />
+					<bean ref="studentGetCache" />
+					<to uri="ehcache://studentCache" />
 					<bean ref="getStudentHandler" />
 				</when>
 			</choice>
-			<to uri="stream:out" />
 		</route>
 	</camelContext>
 </blueprint>

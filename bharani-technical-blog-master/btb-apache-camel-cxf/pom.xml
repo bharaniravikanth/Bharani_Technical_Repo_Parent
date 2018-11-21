@@ -53,6 +53,11 @@
 			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-ehcache</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 			<version>${jaxb.version}</version>
@@ -77,6 +82,7 @@
 			<artifactId>maven-compiler-plugin</artifactId>
 			<version>${maven.compile.version}</version>
 		</dependency>
+
 	</dependencies>
 	<build>
 		<defaultGoal>install</defaultGoal>
